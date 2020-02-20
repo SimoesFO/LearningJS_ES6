@@ -6,6 +6,14 @@
  ******************************************************/
 
 
+// SAMPLE 00
+console.log("SAMPLE 00 - Get elements from array and Object Destructuring")
+const alphabet = ['A', 'B', 'C', 'D', 'E', 'F']
+const [a,b,,d, ...rest] = alphabet
+console.log(a +" "+ b +" "+ d)
+console.log(rest)
+
+
 // SAMPLE 01
 console.log("SAMPLE 01 - functions call")
 let minValue = Math.min(45, 23, 17, -3, 283, 38)
@@ -41,7 +49,7 @@ let fullFamily3 = [...parents, ...kids, 'EU!', ...dogs, 'Tartaruga sem Nome']
 console.log(fullFamily3)
 
 // SAMPLE 04
-console.log("SAMPLE 04 - copiar um array")
+console.log("SAMPLE 04 - copy a array")
 const originals = ['Mona Lisa', 'American Gothic', 'The School of Athens']
 const copies = originals; // Cria referência. Dessa forma modificando o original
 copies.push("Nighthawks")
@@ -55,4 +63,38 @@ console.log(originals2)
 console.log(copies2)
 
 
+// SAMPLE 05
+console.log("SAMPLE 05 - Object merge")
+const lion = {hasTail: true, legs: 4}
+const eagle = {canFly: true}
 
+const hybrid = {name: "Gryphon", ...lion, ...eagle}
+console.log(hybrid)
+
+
+// SAMPLE 06 
+console.log("SAMPLE 06 - Immutation array - Function Programmning ")
+// Programação Tradicional
+const toDos = [
+    {user: "João", completed: false, task: "Upload Video"},
+    {user: "Maria", completed: true, task: "Rob Bank"}
+]
+// Altera o Array Original.
+function addToDos(newToDo) {
+    toDos.push(newToDo)
+}
+addToDos({user: "Renata", completed: false, task: "Go market"})
+console.log(toDos)
+
+//Programação Funcional
+const toDos2 = [
+    {user: "João", completed: false, task: "Upload Video"},
+    {user: "Maria", completed: true, task: "Rob Bank"}
+]
+// NÃO altera o Array Original.
+function addToDos2(newToDo) {
+    return [...toDos2, {...newToDo, completed: false}]
+}
+const resultToDo = addToDos2({user: "Renata", task: "Go market"})
+console.log(toDos2)
+console.log(resultToDo)
