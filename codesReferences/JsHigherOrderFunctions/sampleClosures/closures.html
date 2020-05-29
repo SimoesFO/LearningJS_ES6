@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aprendendo sobre Closures</h1>
+    <h2>Exemplo prático</h2>
+
+    Closures são funções que lembram do contexto/ambiente onde foram criadas. 
+    <br><br>
+
+    <button onclick="size12()">Size 12</button>
+    <button onclick="size14()">Size 14</button>
+    <button onclick="size16()">Size 16</button>
+<script>
+    function makeSizer(size) {
+        return function() {
+            document.body.style.fontSize = size+'px';
+        }
+    }
+
+    var size12 = makeSizer(12);
+    var size14 = makeSizer(14);
+    var size16 = makeSizer(16);
+</script>
+</body>
+</html>
+
