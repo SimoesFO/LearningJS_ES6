@@ -6,6 +6,65 @@
   <title>Repositores GitHub</title>
 
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .flexbox-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1em;
+    }
+
+    .container {
+      width: 500px;
+      max-width: 90vh;
+      border: 2px solid #CCC;
+      border-radius: 10px;
+      background-color: #EEE;
+      padding: 1em;
+    }
+
+    h2 {
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      display: flex;
+      margin: 10px 0;
+    }
+
+    input {
+      flex-grow: 2;
+      flex-basis: 0;
+      margin-right: 5px;
+      min-height: 2.5em;
+      border-radius: 5px;
+    }
+
+    button {
+      flex-grow: 1;
+      flex-basis: 0;
+      border-radius: 0.25rem;
+      border: 0px;
+      color: #FFF;
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    button:hover {
+      background-color: #007be0;
+    }
+
+    hr {
+      border: 1px solid #CCC;
+      margin: 5px 0;
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -31,16 +90,25 @@
     p {
       margin: 5px 0;
     }
+
+    
   </style>
 </head>
 <body>
-  <form id="repo-form">
-    <input type="text" name="repository">
-    <button type="submit">Adicionar</button>
-  </form>
+  <div class='flexbox-container'>
+    <div class="container">
+      <h2>GitHub Repositories</h2>
+      <hr />
 
-  <ul id="repo-list"></ul>
+      <form id="repo-form">
+        <input type="text" name="repository" placeholder="Add the repository you want to loading...">
+        <button type="submit">Adicionar</button>
+      </form>
 
+
+      <ul id="repo-list"></ul>
+    </div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
